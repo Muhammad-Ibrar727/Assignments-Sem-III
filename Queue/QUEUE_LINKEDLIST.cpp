@@ -77,6 +77,26 @@ void get_Que()
 		Enqueue(element);
 	}
 }
+
+
+void search(int element)
+{
+	int count=1;
+	struct node*temp=front;
+	while(temp->next!=NULL)
+	{
+		if(temp->data==element)
+		{
+			cout<<element<<" found at location"<<count;
+			return;
+		}
+		else{
+			count++;
+			temp=temp->next;
+		}
+	}
+		cout<<element<<"not found";
+}
 int main()
 {
 	get_Que();
@@ -87,8 +107,9 @@ int main()
     cout<<"\nchoose the option\n";
     cout<<"1.For Enqueue\n";
     cout<<"2.for Deque\n";
-    cout<<"3. for display\n";
-    cout<<"4. for exit\n";
+    cout<<"3.for display\n";
+    cout<<"4.Search\n";
+    cout<<"5.for exit\n";
     int c; 
     cin>>c;
 //    system("cls");
@@ -109,11 +130,19 @@ int main()
     		 display();
     		break;
     	case 4:
+    		{
+    			int element;
+    			cout<<"Enter the element you want to search :";
+    			cin>>element;
+    			search(element);
+			}
+    		break;
+    	case 5:
     		break;
     	default :
     		cout<<"Enter the correct option";
 	}
-	if (c==4)
+	if (c==5)
 	{
 		break;
 	}
